@@ -580,8 +580,8 @@ namespace carve {
           std::vector<VertexInfo *> queue;
 
           void checkheap() {
-#ifdef __GNUC__
-            CARVE_ASSERT(std::is_heap(queue.begin(), queue.end(), order_by_score()));
+#if defined(__GNUC__) && !defined(__clang__)
+            CARVE_ASSERT(std::__is_heap(queue.begin(), queue.end(), order_by_score()));
 #endif
           }
 
