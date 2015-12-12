@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.6)
 
 project(carve)
 
+set(CMAKE_MACOSX_RPATH 1)
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
@@ -13,14 +14,14 @@ set(CARVE_VERSION ${carve_VERSION_MAJOR}.${carve_VERSION_MINOR}.${carve_VERSION_
 
 option(BUILD_COVERAGE                    "Compile with gcov"                                 OFF)
 option(BUILD_SHARED_LIBS                 "Compile libcarve as shared"                        ON)
-option(CARVE_WITH_GUI                    "Compile gui code"                                  ON)
+option(CARVE_WITH_GUI                    "Compile gui code"                                  OFF)
 option(CARVE_SYSTEM_BOOST                "Compile with system installed boost"               ON)
 option(CARVE_BOOST_COLLECTIONS           "Compile with boost collections"                    ON)
 option(CARVE_DEBUG                       "Compile in debug code"                             OFF)
 option(CARVE_DEBUG_WRITE_PLY_DATA        "Write geometry output during debug"                OFF)
 option(CARVE_USE_EXACT_PREDICATES        "Use Shewchuk's exact predicates, where possible"   OFF)
 option(CARVE_INTERSECT_GLU_TRIANGULATOR  "Include support for GLU triangulator in intersect" OFF)
-option(CARVE_GTEST_TESTS                 "Complie gtest, and dependent tests"                ON)
+option(CARVE_GTEST_TESTS                 "Complie gtest, and dependent tests"                OFF)
 
 if (MSVC)
   # For MSVC, CMake sets certain flags to defaults we want to override.

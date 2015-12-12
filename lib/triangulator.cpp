@@ -123,7 +123,7 @@ namespace {
 
     void checkheap() {
 #ifdef __GNUC__
-      CARVE_ASSERT(std::__is_heap(queue.begin(), queue.end(), vertex_info_ordering()));
+      CARVE_ASSERT(std::is_heap(queue.begin(), queue.end(), vertex_info_ordering()));
 #endif
     }
 
