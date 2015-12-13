@@ -3,6 +3,7 @@ if(CARVE_SYSTEM_BOOST)
           DESTINATION "${CMAKE_INSTALL_PREFIX}/include"
           FILES_MATCHING
             PATTERN "*.hpp"
+            PATTERN "*.h"
             PATTERN "internal" EXCLUDE
             REGEX "external/boost" EXCLUDE
   )
@@ -11,6 +12,7 @@ else(CARVE_SYSTEM_BOOST)
           DESTINATION "${CMAKE_INSTALL_PREFIX}/include"
           FILES_MATCHING
             PATTERN "*.hpp"
+            PATTERN "*.h"
             PATTERN "internal" EXCLUDE
   )
 endif(CARVE_SYSTEM_BOOST)

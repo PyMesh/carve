@@ -158,6 +158,10 @@ configure_file (
   "${carve_SOURCE_DIR}/include/carve/cmake-config.h.in"
   "${carve_BINARY_DIR}/include/carve/config.h"
 )
+install(
+    DIRECTORY ${carve_BINARY_DIR}/include/carve/
+    DESTINATION "${CMAKE_INSTALL_PREFIX}/include/carve/"
+    FILES_MATCHING PATTERN "*.h")
 add_definitions(-DCMAKE_BUILD)
 
 include_directories(${carve_BINARY_DIR}/include)
