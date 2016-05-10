@@ -24,7 +24,9 @@
 #include <carve/csg_triangulator.hpp>
 
 #include "geometry.hpp"
+#if !defined(DISABLE_GLU_TRIANGULATOR)
 #include "glu_triangulator.hpp"
+#endif
 
 #include "read_ply.hpp"
 #include "write_ply.hpp"
