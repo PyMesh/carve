@@ -5,8 +5,10 @@ project(gloop)
 include_directories("${gloop_SOURCE_DIR}/include")
 include_directories("${glew_SOURCE_DIR}/include")
 
+if(CARVE_WITH_GUI)
 find_package(OpenGL)
 include_directories(${OPENGL_INCLUDE_DIR})
+endif(CARVE_WITH_GUI)
 
 add_library(gloop_math STATIC src/matrix.cpp src/quaternion.cpp)
 

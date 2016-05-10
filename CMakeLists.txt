@@ -148,9 +148,7 @@ if(CARVE_WITH_GUI)
 
 endif(CARVE_WITH_GUI)
 
-if (OPENGL_FOUND)
-    add_subdirectory(external/GLOOP) 
-endif (OPENGL_FOUND)
+add_subdirectory(external/GLOOP) 
 
 if (CARVE_GTEST_TESTS)
   add_subdirectory(external/gtest-1.5.0)
