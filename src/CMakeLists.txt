@@ -8,7 +8,9 @@ else(GLEW_FOUND)
   include_directories("${carve_SOURCE_DIR}/external/GLEW/include")
 endif(GLEW_FOUND)
 
-include_directories(${OPENGL_INCLUDE_DIR})
+if(OPENGL_FOUND)
+    include_directories(${OPENGL_INCLUDE_DIR})
+endif(OPENGL_FOUND)
 
 include_directories("${carve_SOURCE_DIR}/common")
 
