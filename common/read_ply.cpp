@@ -61,7 +61,7 @@ namespace {
   struct line_idx : public gloop::stream::reader<int> {
     line *l;
     line_idx(line *_l) : l(_l) { }
-    virtual void length(size_t len) { if (l > 0) l->curr().second.reserve(len); }
+    virtual void length(size_t len) { if (l > (void *)0) l->curr().second.reserve(len); }
     virtual void value(int val) { l->curr().second.push_back(val); }
   };
 
