@@ -41,7 +41,9 @@
 #include <algorithm>
 
 #include <time.h>
+#if(UNIX)
 #include <sys/time.h>
+#endif(UNIX)
 
 typedef carve::mesh::MeshSet<3> meshset_t;
 typedef carve::mesh::Mesh<3> mesh_t;

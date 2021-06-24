@@ -20,7 +20,7 @@ inline long random() {
   return rand();
 }
 
-#if defined(_MSC_VER)
+#if _MSC_VER < 1600
 #  include <carve/cbrt.h>
 
 #if _MSC_VER < 1300
