@@ -62,6 +62,9 @@
  */
 namespace carve {
   static struct noinit_t {} NOINIT;
+#if defined(WIN32)
+  typedef ptrdiff_t ssize_t;
+#endif defined(WIN32)
 
   inline std::string fmtstring(const char *fmt, ...);
 
