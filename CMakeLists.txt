@@ -1,10 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
 project(carve)
-set(CMAKE_MACOSX_RPATH 1)
-set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
-set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
-
 set(carve_VERSION_MAJOR 2)
 set(carve_VERSION_MINOR 0)
 set(carve_VERSION_PATCH 0a)
@@ -52,7 +48,6 @@ if (BUILD_COVERAGE)
 endif(BUILD_COVERAGE)
 
 if(WIN32)
-  set(BUILD_SHARED_LIBS OFF) # until everything is exported
   add_definitions(-D_USE_MATH_DEFINES)
   add_definitions(-DNOMINMAX)
 endif(WIN32)

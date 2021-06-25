@@ -1,6 +1,7 @@
 include_directories("${carve_SOURCE_DIR}/include")
 
-add_library(carve
+add_library(carve_obj
+            OBJECT 
             aabb.cpp
             carve.cpp
             convex_hull.cpp
@@ -31,10 +32,14 @@ add_library(carve
             triangle_intersection.cpp
             shewchuk_predicates.cpp)
 
+ADD_LIBRARY(carve $<TARGET_OBJECTS:carve_obj>)
+ADD_LIBRARY(carve_static STATIC $<TARGET_OBJECTS:carve_obj>)
+
 set_target_properties(carve PROPERTIES
                       VERSION   "${carve_VERSION_MAJOR}.${carve_VERSION_MINOR}.${carve_VERSION_PATCH}"
                       SOVERSION "${carve_VERSION_MAJOR}.${carve_VERSION_MINOR}")
 
 install(TARGETS carve
         LIBRARY DESTINATION "${CMAKE_INSTALL_PREFIX}/lib"
-        ARCHIVE DESTINATION "${CMAKE_INSTALL_PREFIX}/lib")
+        ARCHIVE DESTINATION "${CMAKE_INSTALL_PREFIX}/lib"
+        RUNTIME DESTINATION  "${CMAKE_INSTALL_PREFIX}/bin")
