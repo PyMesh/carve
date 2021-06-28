@@ -19,7 +19,7 @@
 #pragma once
 
 #include <carve/carve.hpp>
-
+#include <algorithm>
 #include <carve/mesh.hpp>
 
 namespace carve {
