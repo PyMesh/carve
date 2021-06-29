@@ -29,7 +29,7 @@
 
 #include <gloop/gloop.hpp>
 #include <gloop/gloop-model.hpp>
-
+#include <algorithm>
 #include <iostream>
 #include <iomanip>
 #include <iterator>

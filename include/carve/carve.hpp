@@ -32,11 +32,8 @@
 #  include <carve/gnu_cxx.h>
 #endif
 
-#if defined(CARVE_SYSTEM_BOOST)
 #  define BOOST_INCLUDE(x) <boost/x>
-#else
-#  define BOOST_INCLUDE(x) <carve/external/boost/x>
-#endif
+
 
 #include <math.h>
 
@@ -62,6 +59,9 @@
  */
 namespace carve {
   static struct noinit_t {} NOINIT;
+#if defined(WIN32)
+  typedef ptrdiff_t ssize_t;
+#endif defined(WIN32)
 
   inline std::string fmtstring(const char *fmt, ...);
 

@@ -21,6 +21,7 @@
 
 #include <carve/geom.hpp>
 #include <carve/pointset.hpp>
+#include <algorithm>
 
 namespace carve {
   namespace point {

@@ -1,11 +1,6 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.0)
 
 project(carve)
-
-set(CMAKE_MACOSX_RPATH 1)
-set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
-set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
-
 set(carve_VERSION_MAJOR 2)
 set(carve_VERSION_MINOR 0)
 set(carve_VERSION_PATCH 0a)
@@ -15,7 +10,6 @@ set(CARVE_VERSION ${carve_VERSION_MAJOR}.${carve_VERSION_MINOR}.${carve_VERSION_
 option(BUILD_COVERAGE                    "Compile with gcov"                                 OFF)
 option(BUILD_SHARED_LIBS                 "Compile libcarve as shared"                        ON)
 option(CARVE_WITH_GUI                    "Compile gui code"                                  OFF)
-option(CARVE_SYSTEM_BOOST                "Compile with system installed boost"               ON)
 option(CARVE_BOOST_COLLECTIONS           "Compile with boost collections"                    ON)
 option(CARVE_DEBUG                       "Compile in debug code"                             OFF)
 option(CARVE_DEBUG_WRITE_PLY_DATA        "Write geometry output during debug"                OFF)
@@ -53,7 +47,6 @@ if (BUILD_COVERAGE)
 endif(BUILD_COVERAGE)
 
 if(WIN32)
-  set(BUILD_SHARED_LIBS OFF) # until everything is exported
   add_definitions(-D_USE_MATH_DEFINES)
   add_definitions(-DNOMINMAX)
 endif(WIN32)
@@ -71,18 +64,12 @@ set(HAVE_LIBSTDCPP_UNORDERED_COLLECTIONS FALSE)
 
 set(HAVE_BOOST_UNORDERED_COLLECTIONS FALSE)
 
-if(CARVE_SYSTEM_BOOST)
-  find_package(Boost 1.40)
-  if(Boost_FOUND)
-    include_directories(${Boost_INCLUDE_DIRS})
-    message(STATUS "Using system boost")
-  else(Boost_FOUND)
-    set(CARVE_SYSTEM_BOOST OFF)
-  endif(Boost_FOUND)
-endif(CARVE_SYSTEM_BOOST)
+
   
 if(CARVE_BOOST_COLLECTIONS)
-  set(HAVE_BOOST_UNORDERED_COLLECTIONS TRUE)
+find_package(Boost 1.40)
+include_directories(${Boost_INCLUDE_DIRS})
+set(HAVE_BOOST_UNORDERED_COLLECTIONS TRUE)
 
 else(CARVE_BOOST_COLLECTIONS)
   # attempt to work out which unordered collection implementation we can use

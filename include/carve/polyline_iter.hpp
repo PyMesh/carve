@@ -20,7 +20,7 @@
 #include <list>
 #include <iterator>
 #include <limits>
-
+#include <carve/carve.hpp>
 #include <carve/polyline_decl.hpp>
 
 namespace carve {

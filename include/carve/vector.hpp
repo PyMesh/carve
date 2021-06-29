@@ -24,7 +24,7 @@
 #include <carve/geom3d.hpp>
 
 #include <sstream>
-
+#include <algorithm>
 #include <math.h>
 
 namespace carve {
