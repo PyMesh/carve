@@ -18,6 +18,7 @@
 #pragma once
 
 #include <carve/timing.hpp>
+#include <algorithm>
 
 #include <assert.h>
 #include <list>

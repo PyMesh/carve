@@ -22,7 +22,7 @@
 #include <carve/mesh.hpp>
 #include <carve/mesh_impl.hpp>
 #include <carve/rtree.hpp>
-
+#include <algorithm>
 #include <carve/poly.hpp>
 
 namespace {

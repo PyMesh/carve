@@ -23,7 +23,7 @@
 #include <carve/aabb.hpp>
 
 #include <iostream>
-
+#include <algorithm>
 #include <cmath>
 #include <limits>
 

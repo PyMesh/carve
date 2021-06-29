@@ -20,7 +20,7 @@
 #include <carve/geom2d.hpp>
 #include <carve/geom3d.hpp>
 #include <carve/djset.hpp>
-
+#include <algorithm>
 #include <iostream>
 #include <deque>
 

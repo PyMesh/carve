@@ -64,11 +64,12 @@ set(HAVE_LIBSTDCPP_UNORDERED_COLLECTIONS FALSE)
 
 set(HAVE_BOOST_UNORDERED_COLLECTIONS FALSE)
 
-find_package(Boost 1.40)
-include_directories(${Boost_INCLUDE_DIRS})
+
   
 if(CARVE_BOOST_COLLECTIONS)
-  set(HAVE_BOOST_UNORDERED_COLLECTIONS TRUE)
+find_package(Boost 1.40)
+include_directories(${Boost_INCLUDE_DIRS})
+set(HAVE_BOOST_UNORDERED_COLLECTIONS TRUE)
 
 else(CARVE_BOOST_COLLECTIONS)
   # attempt to work out which unordered collection implementation we can use
